@@ -10,6 +10,8 @@ from xgboost import XGBClassifier
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 import mlflow
 import mlflow.xgboost
+from urllib.parse import urlparse
+
 
 # Setup logging
 import logging
@@ -65,5 +67,21 @@ if __name__ == "__main__":
         
         # Log the model
         mlflow.xgboost.log_model(model, "model")
+        
+        print(f"Model performance:\n- Accuracy: {accuracy}\n- Precision: {precision}\n- Recall: {recall}\n- F1 Score: {f1}")
+
+        # DAGsHub MLflow Tracking URI
+        remote_server_uri = "https://dagshub.com/Abhi0323/BMI-Prediction-with-MLflow-DagsHub.mlflow"
+        mlflow.set_tracking_uri(remote_server_uri)
+
+        tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
+        
+        # Check if the tracking URI scheme is not 'file' for model registration
+        if tracking_url_type_store != "file":
+            mlflow.xgboost.log_model(
+                model, "model", registered_model_name="BMI-XGBoost-Model"
+            )
+        else:
+            mlflow.xgboost.log_model(model, "model")
         
         print(f"Model performance:\n- Accuracy: {accuracy}\n- Precision: {precision}\n- Recall: {recall}\n- F1 Score: {f1}")
