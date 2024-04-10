@@ -51,7 +51,8 @@ At the heart of the project is the predictive model built with XGBoost. Here's a
 Interested in contributing or experimenting with the project? Here’s how you can get involved:
 
 **Explore the Project on DAGsHub:** Visit the project's DAGsHub page to view the code, datasets, and ML experiments.
-Link:[https://dagshub.com/Abhi0323/BMI-Prediction-with-MLflow-DagsHub]
+
+**Link:**[https://dagshub.com/Abhi0323/BMI-Prediction-with-MLflow-DagsHub]
 
 **Run the Experiments:** Clone the project and follow the setup instructions to run your own experiments. Your findings and improvements can help evolve the project further.
 
