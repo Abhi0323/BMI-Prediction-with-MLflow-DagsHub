@@ -1,0 +1,5 @@
+pandas
+numpy
+scikit-learn
+xgboost
+mlflow==2.11.3
